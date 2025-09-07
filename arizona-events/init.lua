@@ -128,6 +128,11 @@ INCOMING[64] = {
 	{ IO.uint8, "_0" }
 }
 
+INCOMING[91] = {
+    "onArizonaAutoDrinkBeer",
+    { IO.bool, "state" }
+}
+
 INCOMING[71] = {
 	"onArizonaShowPositionInDiscord",
 	{ IO.bool8, "status" }
@@ -167,6 +172,45 @@ INCOMING[127] = {
 	{ IO.vector3d,      "position" },
 	{ IO.string8,       "icon_name" },
 	{ IO.uint8,         "_unknown2" }
+}
+
+INCOMING[135] = {
+    "onArizonaUiScalar",
+    { IO.uint16, "server_id" },
+    { IO.uint8,  "index" },
+    { IO.float,  "value" }
+}
+
+INCOMING[139] = {
+    "onArizonaSetVehicleColorSmoke",
+    { IO.uint16, "vehicle_id" },
+    { IO.float,  "intensity" },   -- 0.4 стандарт
+    { IO.uint8,  "r" },     
+    { IO.uint8,  "g" },       
+    { IO.uint8,  "b" }       
+}
+
+INCOMING[142] = {
+    "onArizonaVehicleColor",
+    { IO.uint16, "vehicle_id" },
+    { IO.uint8,  "r" },
+    { IO.uint8,  "g" },
+    { IO.uint8,  "b" },
+    { IO.uint8,  "a" }
+}
+
+INCOMING[144] = {
+    "onArizonaSetSkyboxImages",
+    { IO.uint8,  "tag0" }, -- всегда 0x21
+    { IO.uint8,  "tag1" }, -- всегда 0x00
+    { IO.uint8,  "tag2" }, -- всегда 0x00
+    { IO.string, "names" },     -- Подгрузка имен файлов картинок для скайбокса Пример: skyimage_8;skyimage_9;skyimage_12d
+    { IO.uint32, "offset1" }, -- адреса в дллке которые юзается для самой установки картинок на скайбокс
+    { IO.uint32, "offset2" },
+    { IO.uint32, "offset3" },
+    { IO.uint32, "offset4" },
+    { IO.uint32, "offset5" },
+    { IO.uint16, "end" }      -- всегда 0x8020
 }
 
 INCOMING[153] = {
@@ -231,11 +275,11 @@ INCOMING[176] = {
 	{ IO.bool,   "state" }
 }
 
--- INCOMING[180] = {
--- 	"onArizona180",
--- 	{ IO.uint16, "vehicle_id" },
--- 	{ IO.bool8, "status" }
--- }
+INCOMING[180] = {
+    "onArizonaVehicleHeadlightsState",
+    { IO.uint16, "vehicle_id" },
+    { IO.bool,   "state" }
+}
 
 INCOMING[183] = {
 	"onArizonaSetVirtualWorld",
