@@ -61,7 +61,7 @@ acef.send("onArizonaSend", {
 
 function acef.onArizonaDisplay(packet)
 	if acef.decode(packet) then
-	print(packet.event, packet.json)
+		print(packet.event, packet.json)
 	end
 end
 ```
