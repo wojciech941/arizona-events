@@ -51,9 +51,9 @@ INCOMING[12] = {
 }
 
 INCOMING[16] = {
-	"onArizonaLoadHtml",
-	{ IO.uint32, "server_id" },
-	{ IO.string32,"url" }
+    "onArizonaLoadHtml",
+    { IO.uint32, "server_id" },
+    { IO.maybeEncoded, "url" }
 }
 
 INCOMING[17] = {
@@ -352,6 +352,16 @@ OUTGOING[24] = {
 OUTGOING[38] = {
 	"onArizonaSendHash",
 	{ IO.string[64], "hash" }
+}
+
+OUTGOING[10] = {
+	"onArizonaSendQueueFinish",
+	{ IO.uint32, "status" } -- 0 всегда
+}
+
+OUTGOING[50] = {
+	"onArizonaSendClientInit",
+	{ IO.uint8, "status" } -- 1 всегда
 }
 
 OUTGOING[51] = {
