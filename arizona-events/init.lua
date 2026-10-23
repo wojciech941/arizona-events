@@ -53,7 +53,7 @@ INCOMING[12] = {
 INCOMING[16] = {
 	"onArizonaLoadHtml",
 	{ IO.uint32, "server_id" },
-	{ IO.string32,"url" }
+	{ IO.maybeEncoded ,"url" }
 }
 
 INCOMING[17] = {
